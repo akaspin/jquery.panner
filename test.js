@@ -1,6 +1,6 @@
 $("document").ready(function() {
     // Create some content to testing. 
-    var $container = $('#pan_container');
+    var $containers = $('.container');
     
     var $contents = $('<div>');
     var toAdd = ""
@@ -9,5 +9,5 @@ $("document").ready(function() {
                 .append($('<img>').attr('src', 'images/'+i+".jpg"));
         $chunk.appendTo($contents);
     }
-    $('#pan_container').append($contents.html()).panner();
+    $containers.append($contents.html()).panner();
 });
