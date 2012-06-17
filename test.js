@@ -4,11 +4,12 @@ $("document").ready(function() {
     
     var $contents = $('<div>');
     var toAdd = ""
-    for ( var i = 1; i < 100; i++) {
+    for ( var i = 1; i < 10; i++) {
         var $chunk = $('<div>').addClass('pan_item')
                 .append($('<img>').attr('src', 'images/1.jpg'));
         $chunk.appendTo($contents);
     }
     $('.pan-wrap').append($contents.html());
-    $('.pan').panner();
+    $('.pan').panner({sweep:{easing:'swing'}});
+    
 });

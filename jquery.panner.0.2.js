@@ -6,14 +6,23 @@
     var defaultOptions = {
         wrapper: '.pan-wrap',   // Pan wrapper class
         
-        brakeLeft : 'pan-brake-left',
-        brakeRight : 'pan-brake-right',
-        brakeTimeout : 500,
+        // Brake settings
+        brake: {
+            left : 'pan-brake-left',    // Left brake class
+            right : 'pan-brake-right',  // Right brake class
+            timeout : 500               // Brake remove timeout
+        },
         
-        sweepTimeout: 300,      // Sweep detection timeout in millis
-        sweepThreshold : 100,   // Minimum sweep distance threshold
-        sweepMulti : 5,         // Sweep distance multi. 
-        sweepSpeed : 5          // Sweep time multi. Higher - longer.
+        // Sweep settings
+        sweep : {
+            distance : 150,     // Minimal distance for sweep detection 
+            timeout : 200,      // Maximum timeout for sweep detection in millis
+            distanceMulti : 3,  // Sweep distance multi
+            timeMulti : 10,     // Sweep time multi
+            easing : 'linear'   // Sweep easing. Linear by default.
+                                // Highly recommends to use `swing` from 
+                                // jquery.easing. Default `swing` is horrible.
+        }
     }
     
     function Pane(container, options) {
@@ -61,11 +70,12 @@
         function attachBrake(delta) {
             if (delta == 0) return;
             var brakeClass = (delta < 0) ? 
-                    options.brakeLeft : options.brakeRight;
+                    options.brake.left : options.brake.right;
             $$.addClass(brakeClass);
+            
             setTimeout(function() {
                 $$.removeClass(brakeClass);
-            }, options.brakeTimeout);
+            }, options.brake.timeout);
         }
         
         // Start drag. Binds mousemove and mouseup
@@ -115,17 +125,20 @@
         function checkSweep(ev) {
             stopDrag(ev);
             var sweepTime = (new Date()).getTime() - that.sweepTimer;
+            var timeout = options.sweep.timeout;
             
-            if (Math.abs(that.sweepValue) >= options.sweepThreshold &&
-                    sweepTime < options.sweepTimeout) {
-                // calculate sweep distance
-                var sweepDistance = (that.sweepValue * options.sweepMulti);
-                var sweepSpeed = 
-                    (options.sweepTimeout - sweepTime) * options.sweepSpeed;
+            if (Math.abs(that.sweepValue) >= options.sweep.distance &&
+                    sweepTime < timeout) {
+                
+                // 
+                var sweepDistance = (that.sweepValue * 
+                        options.sweep.distanceMulti);
+                var sweepTime = 
+                    (timeout - sweepTime) * options.sweep.timeMulti;
                 wrap.animate(
                         {scrollLeft: wrap.scrollLeft() + sweepDistance}, 
-                        sweepSpeed,
-                        'swing');
+                        sweepTime,
+                        options.sweep.easing);
             }
         };
         

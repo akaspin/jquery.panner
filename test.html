@@ -11,65 +11,107 @@
 <![endif]-->
 
 <script src="http://yandex.st/jquery/1.7.2/jquery.min.js"></script>
-<script src="jquery.panner.0.1.js"></script>
-<script src="test.js"></script>
+<script src="jquery.easing.1.3.js"></script>
+<script src="jquery.panner.0.2.js"></script>
 
 <style type="text/css">
 
+/* Container */
 .container {
   position: relative;
   background-color: #CCC;
   width: 90%;
   max-width: 80em;
-}
-
-/* Container */
-.container > .pan-wrap {
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  /* No select */
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
   }
-  .pan-brake-left:after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    top: 0px;
-    width: 3px;
-    background-color: aqua;
+
+  .container > .pan-wrap {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    /* No select */
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
     }
-  .pan-brake-right:after {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 3px;
-    right: 0px;
-    top: 0px;
-    
-    background-color: red;
-    }
+    /* Brakes */
+    .pan-brake-left:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      top: 0px;
+      width: 3px;
+      background-color: aqua;
+      }
+    .pan-brake-right:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 3px;
+      right: 0px;
+      top: 0px;
+      
+      background-color: red;
+      }
   
 /* Contents item */
-.pan_item {
+.pan-wrap > div {
     margin: 1em;
     padding: 1em;
     background-color: #DDD;
     display: inline-block;
     zoom:1; *display:inline; /* for IE7 */
-    
 }
 </style>
+<script type="text/javascript">
+$("document").ready(function() {
+    $('#pan-1').panner();
+    $('#pan-2').panner({sweep:{easing:'swing'}}); 
+    $('#pan-3').panner({sweep:{easing:'jswing'}}); 
+});
+</script>
 </head>
 
 <body>
-<div id='info'>i</div>
+<div id='pan-1' class="container pan">Linear easing.<br />
+    <div class='pan-wrap'>
+        <div><img src="images/1.jpg"></div>
+        <div><img src="images/2.jpg"></div>
+        <div><img src="images/3.jpg"></div>
+        <div><img src="images/4.jpg"></div>
+        <div><img src="images/5.jpg"></div>
+        <div><img src="images/6.jpg"></div>
+        <div><img src="images/7.jpg"></div>
+        <div><img src="images/8.jpg"></div>
+        <div><img src="images/9.jpg"></div>
+    </div>
+</div>
 
+<div id='pan-2' class="container pan">`swing` easing<br />
+    <div class='pan-wrap'>
+        <div><img src="images/1.jpg"></div>
+        <div><img src="images/2.jpg"></div>
+        <div><img src="images/3.jpg"></div>
+        <div><img src="images/4.jpg"></div>
+        <div><img src="images/5.jpg"></div>
+        <div><img src="images/6.jpg"></div>
+        <div><img src="images/7.jpg"></div>
+        <div><img src="images/8.jpg"></div>
+        <div><img src="images/9.jpg"></div>
+    </div>
+</div>
 
-<div class="container pan">Contents here<br />
-    <div class='pan-wrap'></div>
+<div id='pan-3' class="container pan">`jswing` easing<br />
+    <div class='pan-wrap'>
+        <div><img src="images/1.jpg"></div>
+        <div><img src="images/2.jpg"></div>
+        <div><img src="images/3.jpg"></div>
+        <div><img src="images/4.jpg"></div>
+        <div><img src="images/5.jpg"></div>
+        <div><img src="images/6.jpg"></div>
+        <div><img src="images/7.jpg"></div>
+        <div><img src="images/8.jpg"></div>
+        <div><img src="images/9.jpg"></div>
+    </div>
 </div>
 
 </body>
