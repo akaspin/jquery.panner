@@ -6,35 +6,71 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+<![endif]-->
+
 <script src="http://yandex.st/jquery/1.7.2/jquery.min.js"></script>
 <script src="jquery.panner.0.1.js"></script>
 <script src="test.js"></script>
 
 <style type="text/css">
-/* Container */
+
 .container {
-    background-color: #CCC;
-    overflow: hidden;
-    width: 90%;
-    min-width: 40em;
-    max-width: 80em;
-    white-space: nowrap;
+  position: relative;
+  background-color: #CCC;
+  width: 90%;
+  max-width: 80em;
 }
 
+/* Container */
+.container > .pan-wrap {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  /* No select */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  }
+  .pan-brake-left:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    width: 3px;
+    background-color: aqua;
+    }
+  .pan-brake-right:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    right: 0px;
+    top: 0px;
+    
+    background-color: red;
+    }
+  
 /* Contents item */
 .pan_item {
     margin: 1em;
     padding: 1em;
-    display: inline-block;
     background-color: #DDD;
+    display: inline-block;
+    zoom:1; *display:inline; /* for IE7 */
+    
 }
 </style>
 </head>
 
 <body>
-<h1>Panner</h1>
-<div id="pan_container1" class="container">Contents here<br /></div>
-<div id="pan_container2" class="container">Contents here<br /></div>
-<div id="pan_container3" class="container">Contents here<br /></div>
+<div id='info'>i</div>
+
+
+<div class="container pan">Contents here<br />
+    <div class='pan-wrap'></div>
+</div>
+
 </body>
 </html>
