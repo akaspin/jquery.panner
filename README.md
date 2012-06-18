@@ -16,7 +16,12 @@ Horisontal panning for jQuery with touch fallback.
 ## Compatibility
 
 Most of modern and old browsers. Currently tested on Chrome, MSIE 7+ and 
-FF 3.6+, Chrome for Android, Android Browser (2.1 and 4.0.4).
+FF 3.6+.
+
+`panner` correctly disables itself on Chrome for Android, 
+Android Browser (2.1 and 4.0.4) and iPad.
+
+Tests and issues welcome.
 
 ## Dependencies
 
