@@ -82,6 +82,9 @@ To correctly display scrollable container `panner` automatically sets
         css: {'overflow': 'hidden'}
     });
 
+CSS can be completelly disabled, if you prefer another way, like media 
+queries. Just set `css` option to `false`. 
+
 ## Brakes
 
 If you dig basic usage, you might notice that when ribbon (`.pan`) came up
@@ -248,6 +251,16 @@ for easings.
 
     ... if you disable jquery.easing, you can see difference.
     
+## Alternate control
+
+In some cases, it is useful bind handler for mouse events to different 
+element. It's available with the option `control` which takes element.
+    
+    $(...).panner({ 
+        control : $('#my-control')
+        }
+    });
+
 ## Bonus. Shift on load
 
 On non-touch devices, without scrollbar user may simply not guess that 

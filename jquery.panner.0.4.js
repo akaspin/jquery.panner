@@ -14,12 +14,14 @@
         this.options = options;
         this.el = $(el);
         
-        if (!!!options.brake) {
-            this.brake = false;
-        } else {
+        this.brake = false;
+        if (!!options.brake) {
             this.brake = !!options.brake.what ? 
                     options.brake.what : this.el.parent();
         }
+        
+        // Control
+        this.control = !!options.control ? options.control : this.el;
         
         this._lastX = 0;
         this.init();
@@ -31,12 +33,10 @@
     Panner.prototype.init = function() {
         var that = this;
         
-        this.el.
-            // Set styles for element
-            css(this.options.css)
+        if (!!this.options.css) this.el.css(this.options.css);
         
             // and bind events 
-            .on('mousedown' + eventNs, function(ev) { 
+        this.control.on('mousedown' + eventNs, function(ev) { 
                 that.startDrag(ev);
                 return false;
             });
@@ -58,7 +58,7 @@
         this._lastX = ev.pageX;
         
         var that = this;
-        this.el
+        this.control
             // On mouseup need to check sweep status
             .on('mouseup' + eventNs, function(ev) {
                     that.stopDrag(); 
@@ -79,7 +79,7 @@
      * Stop dragging
      */
     Panner.prototype.stopDrag = function() {
-        this.el.off(
+        this.control.off(
                 'mousemove' + eventNs +
                 ' mouseup' + eventNs +
                 ' mouseleave' + eventNs

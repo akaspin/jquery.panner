@@ -32,8 +32,8 @@
   }
   /* Contents item. Panner don't it for you */
   .pan-wrap > div {
-    margin: 1em;
-    padding: 1em;
+    margin: .3em;
+    padding: .3em;
     background-color: white;
     
     /* Key props. */
@@ -55,6 +55,18 @@
   right: 0px;
   }
   
+#pan-5-control {
+  color: white;
+  background-color: red;
+  width: 90%;
+  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
 </style>
 <script type="text/javascript">
 $("document").ready(function() {
@@ -105,7 +117,7 @@ $("document").ready(function() {
 </div>
 
 <div class="container">
-    `swing` easing. Shift on start.<br />
+    `swing` easing. Shift on start. 
     <pre>{sweep:{easing:'easeOutCubic'}, shift: 200}</pre><br />
     <div id='pan-2' class='pan-wrap'>
         <div><img src="images/1.jpg"></div>
@@ -121,7 +133,7 @@ $("document").ready(function() {
 </div>
 
 <div class="container">
-    No sweep scroll<br />
+    No sweep scroll
     <pre>{sweep:false}</pre><br />
     <div id='pan-3' class='pan-wrap'>
         <div><img src="images/1.jpg"></div>
@@ -137,7 +149,7 @@ $("document").ready(function() {
 </div>
 
 <div class="container">
-    No brakes<br />
+    No brakes
     <pre>{brake:false}</pre><br />
     <div id='pan-4' class='pan-wrap'>
         <div><img src="images/1.jpg"></div>
@@ -153,7 +165,7 @@ $("document").ready(function() {
 </div>
 
 <div class="container">
-    Alternate control. Try red box below<br />
+    Alternate control. Try red box below
     <pre>{control: $('#pan-5-control')}</pre><br />
     <div id='pan-5' class='pan-wrap'>
         <div><img src="images/1.jpg"></div>
