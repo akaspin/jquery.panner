@@ -1,5 +1,5 @@
 /**
- * jquery.panner v0.3
+ * jquery.panner v0.4
  * Horisontal panning. With touch fallback. 
  * Dependencies: jQuery, jQuery.easing (optional)
  */
