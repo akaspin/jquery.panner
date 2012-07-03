@@ -12,7 +12,7 @@
 
 <script src="http://yandex.st/jquery/1.7.2/jquery.min.js"></script>
 <script src="jquery.easing.1.3.js"></script>
-<script src="jquery.panner.0.4.js"></script>
+<script src="jquery.panner.0.4.1.js"></script>
 
 <style type="text/css">
 
@@ -42,8 +42,8 @@
     }
    
 /* Brakes */
-.brake-left:after,
-.brake-right:after {
+.panner-brake-left:after,
+.panner-brake-right:after {
   content: "";
   position: absolute;
   height: 100%;
@@ -51,7 +51,7 @@
   width: 3px;
   background-color: orange;
   }
-.brake-right:after {
+.panner-brake-right:after {
   right: 0px;
   }
   

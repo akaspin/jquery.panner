@@ -1,5 +1,5 @@
 /**
- * jquery.panner v0.4
+ * jquery.panner v0.4.1
  * Horisontal panning. With touch fallback. 
  * Dependencies: jQuery, jQuery.easing (optional)
  */
@@ -187,8 +187,8 @@
                 
                 // Brake settings
                 brake: {
-                    left : 'brake-left',    // Left brake class
-                    right : 'brake-right',  // Right brake class
+                    left : 'panner-brake-left',    // Left brake class
+                    right : 'panner-brake-right',  // Right brake class
                     timeout : 500               // Brake remove timeout
                 },
                 

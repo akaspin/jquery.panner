@@ -98,8 +98,8 @@ be used to display brakes. Just small corrections to CSS.
       }
       
     /* Brake styles. Just display empty rectangle on needed side */
-    .brake-left:after,
-    .brake-right:after {
+    .panner-brake-left:after,
+    .panner-brake-right:after {
       content: "";
       position: absolute;
       height: 100%;
@@ -108,7 +108,7 @@ be used to display brakes. Just small corrections to CSS.
       background-color: orange;
       }
     /* Show right brake on ... right */
-    .brake-right:after {
+    .panner-brake-right:after {
       right: 0px;
       }
 
@@ -116,8 +116,8 @@ All behavior of brakes controlled by `brake` option.
 
     $(...).panner({ 
         brake: {
-            left : 'brake-left',
-            right : 'brake-right',
+            left : 'panner-brake-left',
+            right : 'panner-brake-right',
             timeout : 500
         }
     });
